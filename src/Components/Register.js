@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Styled from "styled-components";
 export default function Register(props) {
   
    let btnText, passBoxType;
@@ -13,6 +13,15 @@ export default function Register(props) {
         passBoxType="password";
         btnClasses.push("btn-success")
       }
+      const StyledButton = Styled.button`
+        display:block;
+        padding:10px 5px;
+        background-color:orange;
+        border:none;
+        color:white;
+        width:100%;
+        margin:5px;
+      `;
    
   return (
     <div className='container card p-3 mt-2 register-container'>
@@ -32,6 +41,8 @@ export default function Register(props) {
          </div>
          <button type='submit' className='btn btn-primary m-1'>Register</button>
          <button type='button' className={btnClasses.join(" ")} onClick={props.click}> {btnText} </button>
+         <StyledButton type='button'> Login </StyledButton>
+         <StyledButton type='button'>T $ C</StyledButton>
       </form>
     </div>
   );
