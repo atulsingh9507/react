@@ -1,19 +1,17 @@
 import React from 'react';
 
 export default function Register(props) {
-   const btnStyle= {
-      backgroundColor: "green" ,
-      color:"white"
-
-   };
+  
    let btnText, passBoxType;
+   let btnClasses = ["btn" ,"m-1"];
    if(props.showPass === true) {
-      btnStyle.backgroundColor="red";
       btnText = "Hide Password";
       passBoxType="text";
+      btnClasses.push("btn-danger");
     } else{
         btnText = "Show Password";
-        passBoxType="password"
+        passBoxType="password";
+        btnClasses.push("btn-success")
       }
    
   return (
@@ -33,7 +31,7 @@ export default function Register(props) {
             <input type={passBoxType} name='password' required className='form-control' />
          </div>
          <button type='submit' className='btn btn-primary m-1'>Register</button>
-         <button type='button' className='btn m-1' onClick={props.click} style={btnStyle}> {btnText} </button>
+         <button type='button' className={btnClasses.join(" ")} onClick={props.click}> {btnText} </button>
       </form>
     </div>
   );
