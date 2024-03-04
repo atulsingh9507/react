@@ -14,12 +14,12 @@ export default function Register(props) {
         btnClasses.push("btn-success")
       }
       const StyledButton = Styled.button`
-        display:block;
+        display:${(props) => (props.flag? "inline-block": "block")};
         padding:10px 5px;
-        background-color:orange;
+        background-color:${(props) => props.bgcolor};
         border:none;
         color:white;
-        width:100%;
+        width:${(props) => props.flag ==="1"? "45%":"100%"};
         margin:5px;
       `;
    const StyleRegisterContainer = Styled.div`
@@ -49,8 +49,10 @@ export default function Register(props) {
          </div>
          <button type='submit' className='btn btn-primary m-1'>Register</button>
          <button type='button' className={btnClasses.join(" ")} onClick={props.click}> {btnText} </button>
-         <StyledButton type='button'> Login </StyledButton>
-         <StyledButton type='button'>T $ C</StyledButton>
+         <br/>
+         <StyledButton type='button' flag="1" bgcolor= "orange"> Login </StyledButton>
+         <StyledButton type='button' flag="1" bgcolor='green'>Login With Google</StyledButton>
+         <StyledButton type='button' flag="0" bgcolor='blue'>Login With Google</StyledButton>
       </form>
    </StyleRegisterContainer>
   );
